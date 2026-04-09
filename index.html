@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanouil Georgoudis | Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f8f9fa; 
+            font-family: 'Courier Prime', monospace;
+            color: #333;
+        }
+        .typewriter-text {
+            font-family: 'Courier Prime', monospace;
+            border-right: 2px solid #333;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: 
+                typing 2.5s steps(40, end), 
+                blink-caret .25s step-end 5 forwards; 
+        }
+
+        @keyframes typing { 
+            from { width: 0 } 
+            to { width: 100% } 
+        }
+
+        @keyframes blink-caret { 
+            from, to { border-color: transparent } 
+            50% { border-color: #333 } 
+            100% { border-color: transparent } 
+        }
+        
+        .nav-link { color: #555; border: none !important; }
+        .nav-link.active { background: none !important; font-weight: bold; border-bottom: 2px solid #333 !important; }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container py-5 mt-5" style="max-width: 800px;">
+    <header class="mb-5">
+        <div class="row align-items-center">
+            <div class="col-auto">
+                <h1 class="typewriter-text">Emmanouil Georgoudis</h1>
+                <p class="text-muted mb-0">Utvecklare || Musiker || Pedagog</p>
+            </div>
+            <div class="col-auto">
+                <img src="Profil.png" alt="Emmanouil Georgoudis" class="profile-img rounded-circle border">
+            </div>
+        </div>
+    </header>
+
+    <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
+        <li class="nav-item"><button class="nav-link active" id="om-tab" data-bs-toggle="tab" data-bs-target="#om" type="button">Om mig</button></li>
+        <li class="nav-item"><button class="nav-link" id="projekt-tab" data-bs-toggle="tab" data-bs-target="#projekt" type="button">Projekt</button></li>
+        <li class="nav-item"><button class="nav-link" id="kontakt-tab" data-bs-toggle="tab" data-bs-target="#kontakt" type="button">Kontakt</button></li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="om">
+            <p>Text om mig kommer snart</p>
+            <ul>
+                <li>Punkt ett</li>
+                <li>Punkt två</li>
+            </ul>
+        </div>
+        <div class="tab-pane fade" id="projekt">Här kommer tre flikar/projekt.</div>
+        <div class="tab-pane fade" id="kontakt">Information om mig.</div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
