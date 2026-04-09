@@ -9,10 +9,13 @@
     
     <style>
         body {
-            background-color: #f8f9fa; 
+            /* Varm vit/papperston */
+            background-color: #fefdfb; 
             font-family: 'Courier Prime', monospace;
             color: #333;
+            line-height: 1.6;
         }
+
         .typewriter-text {
             font-family: 'Courier Prime', monospace;
             border-right: 2px solid #333;
@@ -35,23 +38,37 @@
             100% { border-color: transparent } 
         }
         
+        /* Navigering */
         .nav-link { color: #555; border: none !important; }
         .nav-link.active { background: none !important; font-weight: bold; border-bottom: 2px solid #333 !important; }
         
-       
-        .sub-nav {
-            gap: 50px; /* Mer avstånd mellan kategorierna */
-        }
+        .sub-nav { gap: 50px; }
         .sub-nav .nav-link { 
-            font-size: 0.9rem; 
+            font-size: 0.85rem; 
             padding: 5px 0; 
-            white-space: nowrap; /* Hindrar radbrytning inuti valet */
+            white-space: nowrap;
+        }
+
+        /* Textstorlekar och hierarki */
+        .tab-pane p {
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        h6 {
+            font-size: 0.95rem; /* Samma som brödtexten enligt önskemål */
+            color: #222;
         }
 
         .profile-img {
             width: 150px;
             height: 150px;
             object-fit: cover;
+        }
+
+        strong {
+            color: #000;
+            font-weight: 700;
         }
     </style>
 </head>
@@ -62,9 +79,9 @@
         <div class="row align-items-center">
             <div class="col-auto">
                 <h1 class="typewriter-text">Emmanouil Georgoudis</h1>
-                <p class="text-muted mb-0">Utvecklare && Musiker && Pedagog</p>
+                <p class="text-muted mb-0">Utvecklare - Musiker - Pedagog</p>
             </div>
-            <div class="col-auto">
+            <div class="col text-end">
                 <img src="Profil2.png" alt="Emmanouil Georgoudis" class="profile-img rounded-circle border">
             </div>
         </div>
@@ -78,11 +95,25 @@
 
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="om">
-            <p>Text om mig kommer snart</p>
-            <ul>
-                <li>Punkt ett</li>
-                <li>Punkt två</li>
-            </ul>
+            <h6 class="text-uppercase fw-bold mb-2" style="letter-spacing: 2px;">Fundament</h6>
+            <p class="mb-4">
+                Jag har ägnat mitt liv åt att förstå hur komplexa system hänger ihop och sökt mig ner till de axiom de vilar på. Allt från att analysera harmoniska modulationer till att genomföra den långsiktiga planering som krävs för att uppnå teknisk virtuositet, handlar för mig om samma sak: att finna de teoretiska ramverk som synliggör hur vi kommunicerar genom en relevant arkitektur.
+            </p>
+
+            <h6 class="text-uppercase fw-bold mb-2" style="letter-spacing: 2px;">Identitet</h6>
+            <p class="mb-4">
+                Det slog mig nyligen att min nya yrkesroll, systemutvecklare, innehåller det nyckelord som bäst representerar både min bakgrund och min framtid. Jag drivs av en ständig intellektuell nyfikenhet att dekonstruera och experimentera. Att vara på resande fot i sökande efter ny kunskap gör det naturligt att vila på ordet <strong>utvecklare</strong> i allt man gör.
+            </p>
+
+            <h6 class="text-uppercase fw-bold mb-2" style="letter-spacing: 2px;">Implementation</h6>
+            <p class="mb-4">
+                Under min Master på KMH utvecklade jag ny teori, ny teknik och konstruerade egna instrument baserade på djupgående studier och dokumentation. Idag utforskar jag hybrida lösningar inom IT, som exempelvis att hitta den optimala balansen mellan funktionell och objektorienterad programmering.
+            </p>
+
+            <h6 class="text-uppercase fw-bold mb-2" style="letter-spacing: 2px;">Principer</h6>
+            <p class="mb-4">
+                En viktig princip jag följer är att skilja på att <em>förstå</em> något och att faktiskt <em>kunna</em> det. Det är först när man kan förklara ett komplext koncept för andra som man verkligen behärskar det – och det är i den enkelheten jag finner elegansen.
+            </p>
         </div>
         
         <div class="tab-pane fade" id="projekt">
@@ -111,7 +142,10 @@
             </div>
         </div>
 
-        <div class="tab-pane fade" id="kontakt">Information om mig.</div>
+        <div class="tab-pane fade" id="kontakt">
+            <p>E-post: [Din e-post]</p>
+            <p>LinkedIn: [Din länk]</p>
+        </div>
     </div>
 </div>
 
