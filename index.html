@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="sv">
+    <nav class="d-flex justify-content-end mb-2 pe-4">
+    <ul class="nav sub-nav border-0">
+        <li class="nav-item"><a class="nav-link active p-0" href="index.html" style="font-size: 0.7rem;">English</a></li>
+        <li class="nav-item"><a class="nav-link p-0" href="#" style="font-size: 0.7rem;">Swedish</a></li>
+        <li class="nav-item"><a class="nav-link p-0" href="#" style="font-size: 0.7rem;">Greek</a></li>
+    </ul>
+</nav>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +16,13 @@
     
     <style>
         body {
-            /* Ren vit bakgrund */
             background-color: #ffffff; 
             font-family: 'Courier Prime', monospace;
             color: #333;
-            line-height: 1.6;
-            /* Smidigare scrollning mellan tabbar på mobil */
+            line-height: 1.6; /* Återställt till original */
             overflow-x: hidden; 
         }
 
-        /* Typewriter effekt */
         .typewriter-text {
             font-family: 'Courier Prime', monospace;
             border-right: 2px solid #333;
@@ -30,91 +34,34 @@
                 blink-caret .25s step-end 5 forwards; 
         }
 
-        @keyframes typing { 
-            from { width: 0 } 
-            to { width: 100% } 
-        }
-
-        @keyframes blink-caret { 
-            from, to { border-color: transparent } 
-            50% { border-color: #333 } 
-            100% { border-color: transparent } 
-        }
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: #333 } 100% { border-color: transparent } }
         
-        /* Navigering */
         .nav-link { color: #555; border: none !important; cursor: pointer; }
         .nav-link.active { background: none !important; font-weight: bold; border-bottom: 2px solid #333 !important; }
         
-        .sub-nav { gap: 15px; justify-content: start; } /* Lite tajtare gap för mobiler, men startar till vänster */
+        .sub-nav { gap: 40px; justify-content: start; }
         .sub-nav .nav-link { 
             font-size: 0.8rem; 
             padding: 5px 0; 
-            white-space: nowrap;
+            white-space: nowrap; 
+            letter-spacing: 3px; /* Ger mer luft mellan bokstäverna/orden vågrätt */
         }
 
-        /* Textstorlekar och hierarki */
-        .tab-pane p {
-            font-size: 0.95rem;
-            color: #444;
-        }
+        .tab-pane p { font-size: 0.95rem; color: #444; }
+        h6 { font-size: 0.95rem; color: #222; }
 
-        h6 {
-            font-size: 0.95rem; 
-            color: #222;
-        }
+        .profile-img { width: 150px; height: 150px; object-fit: cover; }
+        .project-img { display: block; max-width: 280px; height: auto; margin-top: 20px; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-        }
+        strong { color: #000; font-weight: 700; }
 
-        strong {
-            color: #000;
-            font-weight: 700;
-        }
-
-        /* ============================================================
-           MOBILANPASSNING (Stående vy / Portrait)
-           Triggas när skärmen är mindre än 576px (typisk mobil)
-           ============================================================ */
         @media (max-width: 576px) {
-            header .row {
-                flex-direction: column-reverse; /* Bilden hamnar överst */
-                text-align: center; /* Centrerar texten */
-            }
-
-            header .col-auto, header .col {
-                width: 100%;
-                text-align: center !important; /* Tvingar centrering */
-                justify-content: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .profile-img {
-                width: 120px; /* Något mindre bild på mobil */
-                height: 120px;
-                margin-top: 0;
-                margin-bottom: 15px; /* Avstånd till namnet */
-                border: none !important; /* Tar bort ramen för en renare look */
-            }
-
-            h1.typewriter-text {
-                font-size: 1.5rem; /* Något mindre rubrik */
-                white-space: normal; /* Tillåter radbrytning om namnet är långt */
-                border: none; /* Tar bort typewriter-strecket på mobil om texten radbryts */
-                animation: none; /* Stänger av animationen på mobil för bättre laddning */
-            }
-            
-            /* Gör sub-naven skrollbar i sidled om det behövs */
-            .sub-nav {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                padding-bottom: 5px;
-            }
+            header .row { flex-direction: column-reverse; text-align: center; }
+            header .col-auto, header .col { width: 100%; text-align: center !important; justify-content: center; display: flex; flex-direction: column; align-items: center; }
+            .profile-img { width: 120px; height: 120px; margin-bottom: 15px; border: none !important; }
+            h1.typewriter-text { font-size: 1.5rem; white-space: normal; border: none; animation: none; }
+            .sub-nav { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 5px; }
         }
     </style>
 </head>
@@ -136,61 +83,75 @@
     <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
         <li class="nav-item"><button class="nav-link active" id="om-tab" data-bs-toggle="tab" data-bs-target="#om" type="button">Om mig</button></li>
         <li class="nav-item"><button class="nav-link" id="projekt-tab" data-bs-toggle="tab" data-bs-target="#projekt" type="button">Projekt</button></li>
-        <li class="nav-item"><button class="nav-link" id="kontakt-tab" data-bs-toggle="tab" data-bs-target="#kontakt" type="button">Kontakt</button></li>
+        <li class="nav-item"><button class="nav-link" id="innovation-tab" data-bs-toggle="tab" data-bs-target="#innovation" type="button">Innovation</button></li>
     </ul>
 
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="om">
-            <h6 class="text-uppercase fw-bold mb-2" style="letter-spacing: 2px;">Fundament</h6>
+            <h6 class="fw-bold mb-2" style="letter-spacing: 2px;">Fundament</h6>
             <p class="mb-4">
-                Jag har ägnat mitt liv åt att förstå hur komplexa system hänger ihop och sökt mig ner till de axiom de vilar på. Allt från att analysera harmoniska modulationer till att genomföra den långsiktiga planering som krävs för att uppnå teknisk virtuositet, handlar för mig om samma sak: att finna de teoretiska ramverk som synliggör hur vi kommunicerar genom en relevant arkitektur.
+                Jag har ägnat mitt liv åt att förstå hur komplexa system hänger ihop och sökt mig ner till de axiom de vilar på. Allt från att analysera harmoniska modulationer till att genomföra den långsiktiga planering som krävs för att uppnå teknisk virtuositet handlar för mig om samma sak: att finna de teoretiska ramverk som synliggör hur vi kommunicerar genom en relevant arkitektur.
             </p>
 
-            <h6 class="text-uppercase fw-bold mb-2" style="letter-spacing: 2px;">Identitet</h6>
+            <h6 class="fw-bold mb-2" style="letter-spacing: 2px;">Identitet</h6>
             <p class="mb-4">
-                Det slog mig nyligen att min nya yrkesroll, systemutvecklare, innehåller det nyckelord som bäst representerar både min bakgrund och min framtid. Jag drivs av en ständig intellektuell nyfikenhet att dekonstruera och experimentera. Att vara på resande fot i sökande efter ny kunskap gör det naturligt att vila på ordet <strong>utvecklare</strong> i allt man gör.
+                Min roll som systemutvecklare är en naturlig förlängning av min bakgrund. Jag drivs av en ständig intellektuell nyfikenhet att dekonstruera, experimentera och bygga nytt. Att ständigt vara på resande fot i sökandet efter kunskap gör att ordet <strong>utvecklare</strong> bäst representerar allt jag tar mig för – oavsett om det handlar om kod, musik eller pedagogik.
             </p>
 
-            <h6 class="text-uppercase fw-bold mb-2" style="letter-spacing: 2px;">Implementation</h6>
+            <h6 class="fw-bold mb-2" style="letter-spacing: 2px;">Implementation</h6>
             <p class="mb-4">
-                Under min Master på KMH utvecklade jag ny teori, ny teknik och konstruerade egna instrument baserade på djupgående studier och dokumentation. Idag utforskar jag hybrida lösningar inom IT, som exempelvis att hitta den optimala balansen mellan funktionell och objektorienterad programmering.
+                Under min Master vid Kungliga Musikhögskolan utvecklade jag ny teori och konstruerade egna instrument baserade på djupgående dokumentation. Idag applicerar jag samma metodik inom IT, där jag utforskar hybrida lösningar och balansen mellan funktionell och objektorienterad programmering för att skapa robusta system.
             </p>
 
-            <h6 class="text-uppercase fw-bold mb-2" style="letter-spacing: 2px;">Principer</h6>
+            <h6 class="fw-bold mb-2" style="letter-spacing: 2px;">Principer</h6>
             <p class="mb-4">
-                En viktig princip jag följer är att skilja på att <em>förstå</em> något och att faktiskt <em>kunna</em> det. Det är först när man kan förklara ett komplext koncept för andra som man verkligen behärskar det – och det är i den enkelheten jag finner elegansen.
+                En bärande princip i mitt arbete är distinktionen mellan att <em>förstå</em> och att faktiskt <em>kunna</em>. För mig uppstår sann behärskning först när man kan förklara ett komplext koncept på ett enkelt sätt. Det är i den enkelheten jag finner elegansen, både i en ren källkod och i en välformulerad musikalisk fras.
             </p>
         </div>
         
         <div class="tab-pane fade" id="projekt">
             <ul class="nav nav-tabs sub-nav mb-4 mt-2" id="projectSubTab" role="tablist">
                 <li class="nav-item">
-                    <button class="nav-link active text-uppercase" id="teori-tab" data-bs-toggle="tab" data-bs-target="#teori" type="button" style="letter-spacing: 1px;">Teori</button>
+                    <button class="nav-link active" id="musik-tab" data-bs-toggle="tab" data-bs-target="#musik" type="button">Musik</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link text-uppercase" id="teknik-tab" data-bs-toggle="tab" data-bs-target="#teknik" type="button" style="letter-spacing: 1px;">Teknik</button>
-                </li>
-                <li class="nav-item">
-                    <button class="nav-link text-uppercase" id="innovation-tab" data-bs-toggle="tab" data-bs-target="#innovation" type="button" style="letter-spacing: 1px;">Innovation</button>
+                    <button class="nav-link" id="it-tab" data-bs-toggle="tab" data-bs-target="#it" type="button">IT</button>
                 </li>
             </ul>
-            
             <div class="tab-content">
-                <div class="tab-pane fade show active" id="teori">
-                    <p>Här beskriver du dina teoretiska grunder inom musik eller pedagogik.</p>
+                <div class="tab-pane fade show active" id="musik">
+                    <p>Här kan du lista dina musikaliska bedrifter, samarbeten och kompositioner.</p>
                 </div>
-                <div class="tab-pane fade" id="teknik">
-                    <p>Här beskriver du din tekniska stack och verktyg som du använder.</p>
-                </div>
-                <div class="tab-pane fade" id="innovation">
-                    <p>Här berättar du om dina framtida visioner och nyskapande projekt.</p>
+                <div class="tab-pane fade" id="it">
+                    <p>Här beskriver du din tekniska stack, GitHub-repro och systemlösningar.</p>
                 </div>
             </div>
         </div>
 
-        <div class="tab-pane fade" id="kontakt">
-            <p>E-post: [Din e-post]</p>
-            <p>LinkedIn: [Din länk]</p>
+        <div class="tab-pane fade" id="innovation">
+            <ul class="nav nav-tabs sub-nav mb-4 mt-2" id="innovationSubTab" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" id="teori-tab" data-bs-toggle="tab" data-bs-target="#teori" type="button">Teori</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="teknik-tab" data-bs-toggle="tab" data-bs-target="#teknik" type="button">Teknik</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" id="hantverk-tab" data-bs-toggle="tab" data-bs-target="#hantverk" type="button">Hantverk</button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="teori">
+                    <p>Utforskande av pedagogiska modeller och systemteoretiska perspektiv.</p>
+                </div>
+                <div class="tab-pane fade" id="teknik">
+                    <p>Framtida teknologier, experimentell mjukvara och digitala verktyg.</p>
+                </div>
+                <div class="tab-pane fade" id="hantverk">
+                    <p>Fysisk konstruktion av instrument och tekniska prototyper.</p>
+                    <img src="BassConstruction.png" alt="Bass Construction" class="img-fluid project-img border">
+                </div>
+            </div>
         </div>
     </div>
 </div>
